@@ -26,7 +26,6 @@ import static org.springframework.http.ResponseEntity.ok;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
-import io.jsonwebtoken.Header;
 import io.jsonwebtoken.Jws; 
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;

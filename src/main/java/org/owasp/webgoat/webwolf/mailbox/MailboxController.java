@@ -58,10 +58,17 @@ public class MailboxController {
   }
 
   @PostMapping("/mail")
-  @ResponseStatus(HttpStatus.CREATED)
-  public void sendEmail(@RequestBody Email email) {
+@ResponseStatus(HttpStatus.CREATED)
+public void sendEmail(@RequestBody EmailDTO emailDTO) {
+    Email email = new Email();
+    email.setSender("server"); // o el usuario autenticado
+    email.setRecipient(emailDTO.getRecipient());
+    email.setSubject(emailDTO.getSubject());
+    email.setBody(emailDTO.getBody());
+    email.setTime(System.currentTimeMillis());
+
     mailboxRepository.save(email);
-  }
+}
 
   @DeleteMapping("/mail")
   @ResponseStatus(HttpStatus.ACCEPTED)
